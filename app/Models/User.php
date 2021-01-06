@@ -46,4 +46,24 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Prayer::class)->withPivot(['day_arrangement', 'status', 'month']);
     }
+
+    /**
+     * User::findOrFail(auth()->user()->id)->prayers()
+     *      ->wherePivot('day_arrangement', $day_arrangement)
+     *      ->wherePivot('month', $month)
+     *
+     * @param $query
+     * @param mixed ...$arr = [$arg=['column_name' => name, 'column_value'=> value], $arg2, $arg3...]
+     *
+     * @return User
+     */
+    public function scopeUserWherePivot($query, ...$arr)
+    {
+        $data =  $query->find(auth()->user()->id)->prayers();
+
+        foreach($arr as $arg) $data->wherePivot($arg['column_name'], $arg['column_value']);
+
+        return $data;
+    }
+
 }

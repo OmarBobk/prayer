@@ -4,6 +4,7 @@ use App\Http\Controllers\DayController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MonthController;
 use App\Models\Month;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,21 @@ Route::get('/testing', function () {
 //    return $data;
 
 //    echo Form::select('size', ['L' => 'Large', 'S' => 'Small'], 'S');
+
+//    return User::testing()->whereId(1)->get();
+
+//    return User::userWherePivot('January', 1)->get();
+
+//    ->wherePivot('day_arrangement', $day_arrangement)
+//            ->wherePivot('month', $month)
+
+//    $day_arrangement = ['column_name' => 'day_arrangement', 'column_value' => 1];
+//    $month = ['column_name' => 'month', 'column_value' => 'January'];
+//
+//    return User::testing($day_arrangement, $month)->get();
+
+    return Carbon::today()->format('Y m d');
+
 
 });
 

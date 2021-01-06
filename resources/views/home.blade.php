@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     @include('includes.breadcrumb', ['breadcrumbs' => ['route' => 'home', 'title' => 'Year']])
     <div class="row justify-content-center">
@@ -18,12 +19,18 @@
                                         </div>
                                     @else
                                         @if($i == 1 | $i % 7 == 0 | ($i - 1) % 7 == 0)
-                                            <div class="text-center col-1" style="padding:5px;">
-                                                <a href="{{route('day.show', [$month->name, $i])}}">{{$i}}</a>
+                                            <div class="text-center col-1 {{$data($month, $i)}}"
+                                                 style="padding:5px;">
+                                                <div class="today_circle_child">
+                                                    <a href="{{route('day.show', [$month->name, $i])}}">{{$i}}</a>
+                                                </div>
                                             </div>
                                         @else
-                                            <div class="text-center col-2" style="padding:5px;">
-                                                <a href="{{route('day.show', [$month->name, $i])}}">{{$i}}</a>
+                                            <div class="text-center col-2 {{$data($month, $i)}}"
+                                                 style="padding:5px;">
+                                                <div class="today_circle_child">
+                                                    <a href="{{route('day.show', [$month->name, $i])}}">{{$i}}</a>
+                                                </div>
                                             </div>
                                         @endif
                                     @endif

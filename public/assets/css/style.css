@@ -1,0 +1,12 @@
+.today_circle {
+    display: flex;
+    justify-content: center;
+}
+
+.today_circle .today_circle_child {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border:1px solid;border-radius: 50%;width: 25px;height: 25px;
+    background-color: #00000020;
+}

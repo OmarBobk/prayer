@@ -16,7 +16,7 @@
                 <div class="card mb-5">
                     <div class="card-header text-center">
                         <div><a href="{{route('day.show', [$month->name, $i])}}">{{$month->days()->wherePivot('day_arrangement', $i)->first()->name}}</a></div>
-                        <div><a href="{{route('day.show', [$month->name, $i])}}">{{$i}}</a></div>
+                        <div class="{{$data($month, $i)}}"><div class="today_circle_child"><a href="{{route('day.show', [$month->name, $i])}}">{{$i}}</a></div></div>
                     </div>
                     <div class="card-body">
                         <div class="row justify-content-center">
